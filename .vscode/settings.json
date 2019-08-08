@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.json": "jsonc",
+    "esp_intr_alloc.h": "c",
+    "stdio.h": "c",
+    "stdlib.h": "c"
+  }
+}
