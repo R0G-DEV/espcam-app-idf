@@ -1153,7 +1153,6 @@ esp_err_t camera_init(const camera_config_t *config)
     }
   }
 
-  //ToDo: core affinity?
   if (!xTaskCreatePinnedToCore(&dma_filter_task, "dma_filter", 4096, NULL, 10, &s_state->dma_filter_task, 0))
   {
     ESP_LOGE(TAG, "Failed to create DMA filter task");
@@ -1171,6 +1170,7 @@ esp_err_t camera_init(const camera_config_t *config)
     goto fail;
   }
   
+  //Add Vsync PIN 25 handler
   err = gpio_isr_handler_add(s_state->config.pin_vsync, &vsync_isr, NULL);
   if (err != ESP_OK)
   {
